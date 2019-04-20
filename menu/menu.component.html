@@ -1,0 +1,15 @@
+
+<ul>
+  <li><a routerLink="home">Home</a></li>
+  <li><a routerLink="followers">followers</a></li>
+  <li><a routerLink="following">following</a></li>
+</ul>
+
+
+<input #input (input)="onInput(input.value)" list="names" name="names" id="name-list">
+
+
+
+<datalist id="names">
+  <option [value]="name" *ngFor="let name of filteredNames">
+</datalist>

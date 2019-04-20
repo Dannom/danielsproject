@@ -1,0 +1,12 @@
+.menu-title {
+  font-size:  32px;
+  color: green;
+}
+
+.menu-item {
+  color: blue;
+}
+
+.menu-item:hover {
+  color: blue;
+}
