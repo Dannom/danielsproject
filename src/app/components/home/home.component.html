@@ -1,0 +1,27 @@
+
+<div class="afterlogged">
+    <input (change)="onUserClick(searchInput.value)" #searchInput (input)="onInput(searchInput.value)" list="names" type="text" class = "searchbar">
+
+    <datalist id="names"> 
+      <option [value]="name" *ngFor="let name of filteredUsers"></option>
+    </datalist>
+
+    <button class="upload-button">
+        <label>
+          UPLOAD
+          <input (change)="onFileChange(uploadInput)" #uploadInput  type="file" style="display: none"  file-handler >
+        </label>
+      </button>
+
+</div>
+
+<div class="file-list">
+  <ul>
+    <li *ngFor="let file of fileFeed">
+      <a [href]="file.base64" download>{{file.userName}}</a>
+    </li>
+  </ul>
+</div>
+
+
+

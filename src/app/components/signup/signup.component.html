@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>UPSHARE | SIGN UP</title>
+    </head>
+
+    <body>
+
+        <form>
+			<h1 class="title">SIGN UP TO UPSHARE</h1>
+
+            <label for="new_mail">INSERT EMAIL ADDRESS</label>
+                <br>
+                <input type="text" name="new_usermail" id="new_mail">
+            <br>
+            <br>
+            <label for="new_username">INSERT NEW USERNAME</label>
+                <br>
+  			    <input type="text" name="new_usern" id="new_username">
+            <br>
+            <br>
+            <label for="new_userpassword">INSERT NEW PASSWORD</label>
+                <br>
+                <input type="password"  name="new_userp" id="new_userpassword">
+
+        </form>
+
+        <br>
+        <button class="signup-btn" type="submit" (click)="sendserver()">DONE</button>
+        <a class="signup-btn back-btn" routerLink="">BACK</a>
+
+    </body>
+</html>
+

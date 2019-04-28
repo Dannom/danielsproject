@@ -1,0 +1,37 @@
+.title
+{
+    color: darkgreen;
+    font-family: arial;
+}
+
+.signin-btn
+{
+    background: darkgreen;
+    font-family: arial;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.signup-page-btn
+{
+    text-decoration: none;
+   color: black
+}
+
+.signup-btn
+{
+    background: darkgreen;
+    font-family: arial;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.back-btn
+{
+    background: darkred;
+    text-decoration: none;
+}
