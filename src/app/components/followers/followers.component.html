@@ -3,5 +3,7 @@
 </p>
 
 <ul> 
-    <li [value]="name" *ngFor="let name of followersarr">{{name}}</li>
+    <li [value]="name"
+    (click)="onUserClick(name)"
+     *ngFor="let name of followersarr">{{name}}</li>
 </ul>

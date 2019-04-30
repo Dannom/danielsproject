@@ -1,3 +1,12 @@
 <p>
-  profile works!
+ Hello this is the page of {{selectedUser}}
 </p>
+
+
+<div class="file-list">
+    <ul>
+      <li *ngFor="let file of profileFeed">
+        <a [href]="file.base64" download>{{file.userName}}</a>
+      </li>
+    </ul>
+  </div>

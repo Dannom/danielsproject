@@ -5,6 +5,8 @@ import {map, startWith} from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { element } from '@angular/core/src/render3';
 import { LoggedUserService } from 'src/app/services/logged-user.service';
+import { GetfilesService } from 'src/app/services/getfiles.service';
+import { Router } from '@angular/router';
 
 export class FileClass {
   base64: string;
@@ -29,14 +31,13 @@ export class HomeComponent implements OnInit{
   fileFeed: FileClass[] = [];
   url = 'http://127.0.0.1';
 
-constructor(private http: HttpClient, private loggedUser: LoggedUserService) {}
+constructor(private http: HttpClient, 
+            private loggedUser: LoggedUserService,
+            private router: Router,
+            public feeder: GetfilesService) {}
 
-ngOnInit() {
-  this.http.post(this.url, (this.loggedUser.loggedInUser + ' getfeed' ))
-  .subscribe( (response) => {
-    console.log(response);
-    this.fileFeed = this.fileListMaker(response);
-  });
+ async ngOnInit() {
+  this.fileFeed = await this.feeder.getfeed();
 }
 
 public onInput(value: string): void {
@@ -49,7 +50,7 @@ public onInput(value: string): void {
 }
 
 public onUserClick(name: string): void {
-  console.log(name);
+  this.router.navigate([`profile/${name}`]);
 }
 
 public onFileChange(fileInput): void {
@@ -69,15 +70,6 @@ public onFileChange(fileInput): void {
 
     console.log('sent file to server');
   };
-}
-
-public fileListMaker(arrayFromServer: any): FileClass[] {
-  const newArray: FileClass[] = [];
-  for (let element of arrayFromServer) {
-    const splitedElement = element.split(' ');
-    newArray.push(new FileClass(splitedElement[1], splitedElement[0]));
-  }
-  return newArray;
 }
 
 }

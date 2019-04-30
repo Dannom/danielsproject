@@ -6,7 +6,10 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+
 import { LoggedUserService } from './services/logged-user.service';
+import { GetfilesService } from './services/getfiles.service';
+
 import { FollowersComponent } from './components/followers/followers.component';
 import { FollowingComponent } from './components/following/following.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -15,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule, MatInputModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
+
 
 
 
@@ -42,7 +46,7 @@ const routes: Routes = [
     component: FollowingComponent
   },
   {
-    path: 'profile',
+    path: 'profile/:name',
     component: ProfileComponent,
   },
   {
@@ -73,7 +77,8 @@ const routes: Routes = [
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [LoggedUserService],
+  providers: [LoggedUserService, GetfilesService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
